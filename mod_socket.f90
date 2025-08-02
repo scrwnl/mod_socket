@@ -93,7 +93,7 @@ module mod_socket
         end function
 
         ! void *memset(void *s, int c, size_t n);
-        subroutine c_memset(s, c, n) bind(c,name="memset")
+        subroutine c_memset(s, c, n) bind(c, name="memset")
             use, intrinsic :: iso_c_binding
             !type(c_ptr) :: c_memset
             type(c_ptr), value, intent(in) :: s
@@ -102,14 +102,14 @@ module mod_socket
         end subroutine
 
         ! size_t strlen(const char *str);
-        function c_strlen(str) bind(c,name="strlen")
+        function c_strlen(str) bind(c, name="strlen")
             use, intrinsic :: iso_c_binding
             integer(c_size_t) :: c_strlen
             type(c_ptr), value, intent(in) :: str
         end function
 
         ! int strcmp(const char *s1, const char *s2);
-        function c_strcmp(s1, s2) bind(c,name="strcmp")
+        function c_strcmp(s1, s2) bind(c, name="strcmp")
             use, intrinsic :: iso_c_binding
             integer(c_int) :: c_strcmp
             type(c_ptr), value, intent(in) :: s1, s2
