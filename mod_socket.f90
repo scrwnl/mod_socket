@@ -57,8 +57,9 @@ module mod_socket
         function c_send(sockfd, buf, len, flags) bind(c, name="send")
             use, intrinsic :: iso_c_binding
             integer(c_int) :: c_send
-            integer(c_int), value :: sockfd, len, flags
-            character(c_char), value :: buf
+            integer(c_int), value :: sockfd, flags
+            integer(c_size_t), value :: len
+            type(c_ptr), value :: buf
         end function
 
         ! ssize_t recv(int sockfd, const void *buf, size_t len, int flags);
@@ -112,6 +113,12 @@ module mod_socket
             use, intrinsic :: iso_c_binding
             integer(c_int) :: c_strcmp
             type(c_ptr), value, intent(in) :: s1, s2
+        end function
+
+        function c_close(fd) bind(c, name="close")
+            use, intrinsic :: iso_c_binding
+            integer(c_int) :: c_close
+            integer(c_int), value :: fd
         end function
   end interface
 

@@ -14,8 +14,8 @@ $(TARGET): $(OBJS)
 
 main.o: $(MODULES).mod
 
-run:
-	./example
+run: $(TARGET)
+	./$(TARGET)
 
 %.o: %.f90
 	$(COMPILE.f) $(OUTPUT_OPTION) $<
