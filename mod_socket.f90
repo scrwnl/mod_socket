@@ -46,7 +46,7 @@ module mod_socket
         end function
 
         ! ssize_t send(int sockfd, const void *buf, size_t len, int flags);
-        function c_send(sockfd, buf, len, flags) bind (c, name="send")
+        function c_send(sockfd, buf, len, flags) bind(c, name="send")
             use, intrinsic :: iso_c_binding
             integer(kind=c_int) :: c_send
             integer(kind=c_int), value :: sockfd, len, flags
@@ -54,7 +54,7 @@ module mod_socket
         end function
 
         ! ssize_t recv(int sockfd, const void *buf, size_t len, int flags);
-        function c_recv(sockfd, buf, len, flags) bind (c, name="recv")
+        function c_recv(sockfd, buf, len, flags) bind(c, name="recv")
             use, intrinsic :: iso_c_binding
             integer(kind=c_int) :: c_recv
             integer(kind=c_int), value :: sockfd, len, flags
@@ -62,7 +62,7 @@ module mod_socket
         end function
 
         ! int accept(int sockfd, struct sockaddr *addr, socklen_t *addrlen);
-        function c_accept(sockfd, addr, addrlen) bind (c, name="accept")
+        function c_accept(sockfd, addr, addrlen) bind(c, name="accept")
             use, intrinsic :: iso_c_binding
             integer(kind=c_int) :: c_accept
             integer(kind=c_int), value :: sockfd
@@ -70,14 +70,14 @@ module mod_socket
         end function
 
         ! uint32_t htonl(uint32_t hostlong);
-        function c_htonl(hostlong) bind (c, name="htonl")
+        function c_htonl(hostlong) bind(c, name="htonl")
             use, intrinsic :: iso_c_binding
             integer(kind=c_int) :: c_htonl
             integer(kind=c_int), value :: hostlong
         end function
 
         ! uint16_t htons(uint16_t hostshort);
-        function c_htons(hostshort) bind (c, name="htons")
+        function c_htons(hostshort) bind(c, name="htons")
             use, intrinsic :: iso_c_binding
             integer(kind=c_short) :: c_htons
             integer(kind=c_int), value :: hostshort
