@@ -12,6 +12,8 @@ module mod_socket
     integer(c_int), parameter :: SOCK_STREAM = 1
     integer(c_int), parameter :: SOCK_DGRAM  = 2
 
+    integer(c_int), parameter :: INADDR_ANY = 0
+
     type, bind(c) :: sockaddr_in
         integer(c_short) :: sin_family, sin_port
         integer(c_int) :: sin_addr
