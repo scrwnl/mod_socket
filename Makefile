@@ -1,6 +1,6 @@
 FC = gfortran
 
-TARGET = example
+TARGET = sample
 MODULES = mod_socket
 
 OBJS = $(TARGET:=.o) $(MODULES:=.o)
