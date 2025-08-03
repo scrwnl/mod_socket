@@ -12,7 +12,7 @@ all: $(TARGET)
 $(TARGET): $(OBJS)
 	$(LINK.f) $^ $(LOADLIBES) $(LDLIBS) -o $@
 
-main.o: $(MODULES).mod
+$(TARGET).o: $(MODULES).mod
 
 run: $(TARGET)
 	./$(TARGET)
