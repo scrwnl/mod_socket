@@ -5,7 +5,15 @@ program socket_sample
 
     integer(c_int) :: lsock, asock, status
     type(sockaddr_in), target :: addr, client
-    CHARACTER(len=64), target :: response = "Hello Fortran World!"//c_null_char
+    character(len=2), parameter :: crlf = c_carriage_return // c_new_line
+    character(len=1024), target :: response = &
+    "HTTP/1.1 200 OK" // crlf // &
+    "Server: Fortran HTTP Server (Linux)" // crlf // &
+    "Content-Type: text/html" // crlf // &
+    "Content-Length: 23" // crlf // &
+    "" // crlf // &
+    "<h1>Hello, Fortran</h1>" // crlf // c_null_char
+
     integer(c_size_t) :: response_len
     lsock = c_socket(AF_INET, SOCK_STREAM, 0)
 
